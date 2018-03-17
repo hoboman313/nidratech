@@ -1,0 +1,17 @@
+.nav-link {
+  margin-right: .5rem;
+}
+
+.navbar {
+  padding: .5rem 3%;
+
+  &-brand {
+    position: relative;
+    bottom: .25rem;
+    margin-left: 1rem;
+  }
+
+  &-collapse {
+    justify-content: flex-end;
+  }
+}
