@@ -9,6 +9,18 @@
     border-radius: 0;
     min-height: 18rem;
     padding: 3vw;
+    min-height: 70vh;
+  }
+}
+
+.nidratech {
+  &__title {
+    margin-top: 2vh;
+  }
+
+  &__subtitle {
+    margin-top: 5vh;
+    margin-bottom: 4vh;
   }
 }
 
@@ -22,7 +34,7 @@
   }
 }
 
-@include media-breakpoint-up(xs) {
+@include media-breakpoint-down(xs) {
   .index {
     &__container {
       h1 {

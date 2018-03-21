@@ -1,6 +1,17 @@
 <div class="index__container">
-  <h1 class="display-5 margin-bottom">Web Consulting in Touch with Tomorrow</h1>
-  <p class="lead my-3 font-weight-normal">Web development</p>
-  <p class="lead my-3 font-weight-normal">Hybrid mobile apps</p>
-  <p class="lead my-3 font-weight-normal">Browser extensions</p>
+  <div class="position-relative d-inline-block">
+    <h1 class="display-5 nidratech__title">Web Consulting in Touch with Tomorrow</h1>
+    <div class="highlight__line d-none d-lg-block"></div>
+  </div>
+
+  <p class="lead font-weight-normal nidratech__subtitle">
+    We bring ideas to life and create products that people love. <br>
+    Let us help you make something remarkable.
+  </p>
+
+  <div id="contact-container">
+    {{#link-to "contact"}}
+      <button type="button" class="btn btn-primary">Contact Us</button>
+    {{/link-to}}
+  </div>
 </div>
