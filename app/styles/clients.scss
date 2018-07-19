@@ -1,0 +1,18 @@
+.client {
+  &-logo {
+    width: 125px;
+
+    &-container {
+      height: 125px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

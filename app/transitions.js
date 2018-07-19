@@ -1,15 +1,25 @@
-export default function () {
+export default function() {
   this.transition(
     this.fromRoute('index'),
-    this.toRoute(['projects', 'contact']),
-    this.use('toRight'),
-    this.reverse('toLeft')
+    this.toRoute(['projects', 'clients', 'contact']),
+    this.media('(min-width: 992px)'),
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
 
   this.transition(
     this.fromRoute('projects'),
+    this.toRoute(['clients', 'contact']),
+    this.media('(min-width: 992px)'),
+    this.use('toLeft'),
+    this.reverse('toRight')
+  );
+
+  this.transition(
+    this.fromRoute('clients'),
     this.toRoute('contact'),
-    this.use('toRight'),
-    this.reverse('toLeft')
+    this.media('(min-width: 992px)'),
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
 }
