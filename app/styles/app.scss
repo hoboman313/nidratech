@@ -45,6 +45,10 @@ body > .ember-view {
     font-size: 0.8rem;
     min-height: 2rem;
   }
+
+  h4 {
+    font-size: 1.2rem;
+  }
 }
 
 @include media-breakpoint-down(sm) {

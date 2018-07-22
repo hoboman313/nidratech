@@ -1,6 +1,7 @@
 .client {
   &-logo {
     width: 125px;
+    margin-right: 3vw;
 
     &-container {
       height: 125px;
@@ -15,4 +16,9 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
 }

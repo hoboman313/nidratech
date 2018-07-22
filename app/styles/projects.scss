@@ -15,6 +15,16 @@
   color: #f93e0b;
 }
 
+#huegasm-promo-images {
+  text-align: center;
+
+  img {
+    width: 20vw;
+    min-width: 200px;
+    margin-bottom: 10px;
+  }
+}
+
 @include media-breakpoint-down(xs) {
   .product__logo {
     width: 50px;
