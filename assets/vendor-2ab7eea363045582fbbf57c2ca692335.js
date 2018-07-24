@@ -3068,7 +3068,7 @@ F.compare=v.compare,F.copy=v.copy,F.isEqual=v.isEqual,F.inject=function(){},F.in
 F.RSVP=v.RSVP,F.Namespace=v.Namespace,q.empty=g.empty,q.notEmpty=g.notEmpty,q.none=g.none,q.not=g.not,q.bool=g.bool,q.match=g.match,q.equal=g.equal,q.gt=g.gt,q.gte=g.gte,q.lt=g.lt,q.lte=g.lte,q.oneWay=g.oneWay,q.reads=g.oneWay,q.readOnly=g.readOnly,q.deprecatingAlias=g.deprecatingAlias,q.and=g.and,q.or=g.or,q.sum=g.sum,q.min=g.min,q.max=g.max,q.map=g.map,q.sort=g.sort,q.setDiff=g.setDiff,q.mapBy=g.mapBy,q.filter=g.filter,q.filterBy=g.filterBy,q.uniq=g.uniq,q.uniqBy=g.uniqBy
 q.union=g.union,q.intersect=g.intersect,q.collect=g.collect,Object.defineProperty(F,"STRINGS",{configurable:!1,get:m._getStrings,set:m._setStrings}),Object.defineProperty(F,"BOOTED",{configurable:!1,enumerable:!1,get:u.isNamespaceSearchDisabled,set:u.setNamespaceSearchDisabled}),F.Component=y.Component,y.Helper.helper=y.helper,F.Helper=y.Helper,F.Checkbox=y.Checkbox,F.TextField=y.TextField,F.TextArea=y.TextArea,F.LinkComponent=y.LinkComponent,F._setComponentManager=y.componentManager,F.Handlebars={template:y.template,Utils:{escapeExpression:y.escapeExpression}},F.HTMLBars={template:y.template},n.ENV.EXTEND_PROTOTYPES.String&&(String.prototype.htmlSafe=function(){return(0,y.htmlSafe)(this)}),F.String.htmlSafe=y.htmlSafe,F.String.isHTMLSafe=y.isHTMLSafe,Object.defineProperty(F,"TEMPLATES",{get:y.getTemplates,set:y.setTemplates,configurable:!1,enumerable:!1}),F.VERSION=_.default,E.jQueryDisabled||(F.$=E.jQuery),F.ViewUtils={isSimpleClick:E.isSimpleClick,getViewElement:E.getViewElement,getViewBounds:E.getViewBounds,getViewClientRects:E.getViewClientRects,getViewBoundingClientRect:E.getViewBoundingClientRect,getRootViews:E.getRootViews,getChildViews:E.getChildViews,isSerializationFirstNode:y.isSerializationFirstNode},F.TextSupport=E.TextSupport,F.ComponentLookup=E.ComponentLookup,F.EventDispatcher=E.EventDispatcher,F.Location=w.Location,F.AutoLocation=w.AutoLocation,F.HashLocation=w.HashLocation,F.HistoryLocation=w.HistoryLocation,F.NoneLocation=w.NoneLocation
 F.controllerFor=w.controllerFor,F.generateControllerFactory=w.generateControllerFactory,F.generateController=w.generateController,F.RouterDSL=w.RouterDSL,F.Router=w.Router,F.Route=w.Route,(0,T.runLoadHooks)("Ember.Application",T.default),F.DataAdapter=x.DataAdapter,F.ContainerDebugAdapter=x.ContainerDebugAdapter,(0,t.has)("ember-template-compiler")&&(0,t.default)("ember-template-compiler"),(0,t.has)("ember-testing")&&(B=(0,t.default)("ember-testing"),F.Test=B.Test,F.Test.Adapter=B.Adapter,F.Test.QUnitAdapter=B.QUnitAdapter,F.setupForTesting=B.setupForTesting),(0,T.runLoadHooks)("Ember"),e.default=F,r.IS_NODE?r.module.exports=F:n.context.exports.Ember=n.context.exports.Em=F}),e("ember/version",["exports"],function(e){"use strict"
-e.default="3.3.0"}),e("node-module",["exports"],function(e){var t="object"==typeof module&&"function"==typeof module.require
+e.default="3.3.1"}),e("node-module",["exports"],function(e){var t="object"==typeof module&&"function"==typeof module.require
 t?(e.require=module.require,e.module=module,e.IS_NODE=t):(e.require=null,e.module=null,e.IS_NODE=t)}),e("route-recognizer",["exports"],function(e){"use strict"
 var t=Object.create
 function n(){var e=t(null)
@@ -4507,41 +4507,37 @@ this._nextFlush=null,this.jobs>0&&this._flush()}}]),e}(),o=e.scheduler=new i
 e.default=o}),define("ember-resolver/features",[],function(){}),define("ember-resolver/index",["exports","ember-resolver/resolvers/classic"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})}),define("ember-resolver/resolver",["exports","ember-resolver/resolvers/classic"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})}),define("ember-resolver/resolvers/classic/container-debug-adapter",["exports","ember-resolver/resolvers/classic/index"],function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0})
-var n=Ember.ContainerDebugAdapter
-function r(e,t,n){var r=t.match(new RegExp("^/?"+n+"/(.+)/"+e+"$"))
-if(null!==r)return r[1]}e.default=n.extend({_moduleRegistry:null,init:function(){this._super.apply(this,arguments),this._moduleRegistry||(this._moduleRegistry=new t.ModuleRegistry)},canCatalogEntriesByType:function(e){return"model"===e||this._super.apply(this,arguments)},catalogEntriesByType:function(e){for(var t=this._moduleRegistry.moduleNames(),n=Ember.A(),i=this.namespace.modulePrefix,o=0,s=t.length;o<s;o++){var a=t[o]
-if(-1!==a.indexOf(e)){var u=r(e,a,this.namespace.podModulePrefix||i)
-u||(u=a.split(e+"s/").pop()),n.addObject(u)}}return n}})}),define("ember-resolver/resolvers/classic/index",["exports","ember-resolver/utils/class-factory","ember-resolver/utils/make-dictionary"],function(e,t,n){"use strict"
+function n(e,t,n){var r=t.match(new RegExp("^/?"+n+"/(.+)/"+e+"$"))
+if(null!==r)return r[1]}Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.ContainerDebugAdapter.extend({_moduleRegistry:null,init:function(){this._super.apply(this,arguments),this._moduleRegistry||(this._moduleRegistry=new t.ModuleRegistry)},canCatalogEntriesByType:function(e){return"model"===e||this._super.apply(this,arguments)},catalogEntriesByType:function(e){for(var t=this._moduleRegistry.moduleNames(),r=Ember.A(),i=this.namespace.modulePrefix,o=0,s=t.length;o<s;o++){var a=t[o]
+if(-1!==a.indexOf(e)){var u=n(e,a,this.namespace.podModulePrefix||i)
+u||(u=a.split(e+"s/").pop()),r.addObject(u)}}return r}})}),define("ember-resolver/resolvers/classic/index",["exports","ember-resolver/utils/class-factory","ember-resolver/utils/make-dictionary"],function(e,t,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.ModuleRegistry=void 0,void 0===requirejs.entries&&(requirejs.entries=requirejs._eak_seen)
-var r=e.ModuleRegistry=function(){function e(t){(function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,e),this._entries=t||requirejs.entries}return e.prototype.moduleNames=function(){return Object.keys(this._entries)},e.prototype.has=function(e){return e in this._entries},e.prototype.get=function(e){return require(e)},e}(),i=Ember.String,o=i.underscore,s=i.classify,a=i.dasherize,u=Ember.get
-function l(e){Ember.assert("`modulePrefix` must be defined",this.namespace.modulePrefix)
-var n=this.findModuleName(e)
+var r=e.ModuleRegistry=function(){function e(t){(function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,e),this._entries=t||requirejs.entries}return e.prototype.moduleNames=function(){return Object.keys(this._entries)},e.prototype.has=function(e){return e in this._entries},e.prototype.get=function(e){return require(e)},e}()
+function i(e){var n=this.findModuleName(e)
 if(n){var r=this._extractDefaultExport(n,e)
 if(void 0===r)throw new Error(" Expected to find: '"+e.fullName+"' within '"+n+"' but got 'undefined'. Did you forget to 'export default' within '"+n+"'?")
-return this.shouldWrapInClassFactory(r,e)&&(r=(0,t.default)(r)),r}return this._super(e)}var c=Ember.DefaultResolver.extend({resolveOther:l,parseName:function(e){if(!0===e.parsedName)return e
+return this.shouldWrapInClassFactory(r,e)&&(r=(0,t.default)(r)),r}return this._super(e)}var o=Ember.DefaultResolver.extend({resolveOther:i,parseName:function(e){if(!0===e.parsedName)return e
 var t=void 0,n=void 0,r=void 0,i=e.split("@")
 if("helper:@content-helper"!==e&&2===i.length){var o=i[0].split(":")
 if(2===o.length)t=o[1],n=o[0],r=i[1]
-else{var a=i[1].split(":")
-t=i[0],n=a[0],r=a[1]}"template"===n&&0===t.lastIndexOf("components/",0)&&(r="components/"+r,t=t.slice(11))}else n=(i=e.split(":"))[0],r=i[1]
-var l=r,c=u(this,"namespace")
-return{parsedName:!0,fullName:e,prefix:t||this.prefix({type:n}),type:n,fullNameWithoutType:l,name:r,root:c,resolveMethodName:"resolve"+s(n)}},resolveTemplate:l,pluralizedTypes:null,moduleRegistry:null,makeToString:function(e,t){return this.namespace.modulePrefix+"@"+t+":"},shouldWrapInClassFactory:function(){return!1},init:function(){this._super(),this.moduleBasedResolver=!0,this._moduleRegistry||(this._moduleRegistry=new r),this._normalizeCache=(0,n.default)(),this.pluralizedTypes=this.pluralizedTypes||(0,n.default)(),this.pluralizedTypes.config||(this.pluralizedTypes.config="config"),this._deprecatedPodModulePrefix=!1},normalize:function(e){return this._normalizeCache[e]||(this._normalizeCache[e]=this._normalize(e))},_normalize:function(e){var t=e.split(":")
-return t.length>1?"helper"===t[0]?t[0]+":"+t[1].replace(/_/g,"-"):t[0]+":"+a(t[1].replace(/\./g,"/")):e},pluralize:function(e){return this.pluralizedTypes[e]||(this.pluralizedTypes[e]=e+"s")},podBasedLookupWithPrefix:function(e,t){var n=t.fullNameWithoutType
+else{var s=i[1].split(":")
+t=i[0],n=s[0],r=s[1]}"template"===n&&0===t.lastIndexOf("components/",0)&&(r="components/"+r,t=t.slice(11))}else n=(i=e.split(":"))[0],r=i[1]
+var a=r,u=Ember.get(this,"namespace")
+return{parsedName:!0,fullName:e,prefix:t||this.prefix({type:n}),type:n,fullNameWithoutType:a,name:r,root:u,resolveMethodName:"resolve"+Ember.String.classify(n)}},resolveTemplate:i,pluralizedTypes:null,moduleRegistry:null,makeToString:function(e,t){return this.namespace.modulePrefix+"@"+t+":"},shouldWrapInClassFactory:function(){return!1},init:function(){this._super(),this.moduleBasedResolver=!0,this._moduleRegistry||(this._moduleRegistry=new r),this._normalizeCache=(0,n.default)(),this.pluralizedTypes=this.pluralizedTypes||(0,n.default)(),this.pluralizedTypes.config||(this.pluralizedTypes.config="config"),this._deprecatedPodModulePrefix=!1},normalize:function(e){return this._normalizeCache[e]||(this._normalizeCache[e]=this._normalize(e))},_normalize:function(e){var t=e.split(":")
+return t.length>1?"helper"===t[0]?t[0]+":"+t[1].replace(/_/g,"-"):t[0]+":"+Ember.String.dasherize(t[1].replace(/\./g,"/")):e},pluralize:function(e){return this.pluralizedTypes[e]||(this.pluralizedTypes[e]=e+"s")},podBasedLookupWithPrefix:function(e,t){var n=t.fullNameWithoutType
 return"template"===t.type&&(n=n.replace(/^components\//,"")),e+"/"+n+"/"+t.type},podBasedModuleName:function(e){var t=this.namespace.podModulePrefix||this.namespace.modulePrefix
 return this.podBasedLookupWithPrefix(t,e)},podBasedComponentsInSubdir:function(e){var t=this.namespace.podModulePrefix||this.namespace.modulePrefix
 if(t+="/components","component"===e.type||/^components/.test(e.fullNameWithoutType))return this.podBasedLookupWithPrefix(t,e)},resolveEngine:function(e){var t=e.fullNameWithoutType+"/engine"
 if(this._moduleRegistry.has(t))return this._extractDefaultExport(t)},resolveRouteMap:function(e){var t=e.fullNameWithoutType,n=t+"/routes"
 if(this._moduleRegistry.has(n)){var r=this._extractDefaultExport(n)
-return Ember.assert("The route map for "+t+" should be wrapped by 'buildRoutes' before exporting.",r.isRouteMap),r}},mainModuleName:function(e){if("main"===e.fullNameWithoutType)return e.prefix+"/"+e.type},defaultModuleName:function(e){return e.prefix+"/"+this.pluralize(e.type)+"/"+e.fullNameWithoutType},prefix:function(e){var t=this.namespace.modulePrefix
+return r}},mainModuleName:function(e){if("main"===e.fullNameWithoutType)return e.prefix+"/"+e.type},defaultModuleName:function(e){return e.prefix+"/"+this.pluralize(e.type)+"/"+e.fullNameWithoutType},prefix:function(e){var t=this.namespace.modulePrefix
 return this.namespace[e.type+"Prefix"]&&(t=this.namespace[e.type+"Prefix"]),t},moduleNameLookupPatterns:Ember.computed(function(){return[this.podBasedModuleName,this.podBasedComponentsInSubdir,this.mainModuleName,this.defaultModuleName]}).readOnly(),findModuleName:function(e,t){for(var n=this.get("moduleNameLookupPatterns"),r=void 0,i=0,o=n.length;i<o;i++){var s=n[i].call(this,e)
-if(s&&(s=this.chooseModuleName(s,e)),s&&this._moduleRegistry.has(s)&&(r=s),t||this._logLookup(r,e,s),r)return r}},chooseModuleName:function(e,t){var n=this,r=o(e)
-if(e!==r&&this._moduleRegistry.has(e)&&this._moduleRegistry.has(r))throw new TypeError("Ambiguous module names: '"+e+"' and '"+r+"'")
+if(s&&(s=this.chooseModuleName(s,e)),s&&this._moduleRegistry.has(s)&&(r=s),t||this._logLookup(r,e,s),r)return r}},chooseModuleName:function(e,t){var n=Ember.String.underscore(e)
+if(e!==n&&this._moduleRegistry.has(e)&&this._moduleRegistry.has(n))throw new TypeError("Ambiguous module names: '"+e+"' and '"+n+"'")
 if(this._moduleRegistry.has(e))return e
-if(this._moduleRegistry.has(r))return r
-var i=e.replace(/\/-([^\/]*)$/,"/_$1")
-if(this._moduleRegistry.has(i))return Ember.deprecate('Modules should not contain underscores. Attempted to lookup "'+e+'" which was not found. Please rename "'+i+'" to "'+e+'" instead.',!1,{id:"ember-resolver.underscored-modules",until:"3.0.0"}),i
-Ember.runInDebug(function(){"helper"===t.type&&/[a-z]+[A-Z]+/.test(e)&&(n._camelCaseHelperWarnedNames=n._camelCaseHelperWarnedNames||[],!(n._camelCaseHelperWarnedNames.indexOf(t.fullName)>-1)&&n._moduleRegistry.has(a(e))&&(n._camelCaseHelperWarnedNames.push(t.fullName),Ember.warn('Attempted to lookup "'+t.fullName+'" which was not found. In previous versions of ember-resolver, a bug would have caused the module at "'+a(e)+'" to be returned for this camel case helper name. This has been fixed. Use the dasherized name to resolve the module that would have been returned in previous versions.',!1,{id:"ember-resolver.camelcase-helper-names",until:"3.0.0"})))})},lookupDescription:function(e){var t=this.parseName(e)
+if(this._moduleRegistry.has(n))return n
+var r=e.replace(/\/-([^\/]*)$/,"/_$1")
+return this._moduleRegistry.has(r)?r:void 0},lookupDescription:function(e){var t=this.parseName(e)
 return this.findModuleName(t,!0)},_logLookup:function(e,t,n){if(Ember.ENV.LOG_MODULE_RESOLVER||t.root.LOG_RESOLVER){var r=void 0,i=e?"[✓]":"[ ]"
 r=t.fullName.length>60?".":new Array(60-t.fullName.length).join("."),n||(n=this.lookupDescription(t)),console&&console.info&&console.info(i,t.fullName,r,n)}},knownForType:function(e){for(var t=this._moduleRegistry.moduleNames(),r=(0,n.default)(),i=0,o=t.length;i<o;i++){var s=t[i],a=this.translateToContainerFullname(e,s)
 a&&(r[a]=!0)}return r},translateToContainerFullname:function(e,t){var n=this.prefix({type:e}),r=n+"/",i="/"+e,o=t.indexOf(r),s=t.indexOf(i)
@@ -4549,7 +4545,7 @@ if(0===o&&s===t.length-i.length&&t.length>r.length+i.length)return e+":"+t.slice
 var a=n+"/"+this.pluralize(e)+"/"
 return 0===t.indexOf(a)&&t.length>a.length?e+":"+t.slice(a.length):void 0},_extractDefaultExport:function(e){var t=require(e,null,null,!0)
 return t&&t.default&&(t=t.default),t}})
-c.reopenClass({moduleBasedResolver:!0}),e.default=c})
+o.reopenClass({moduleBasedResolver:!0}),e.default=o})
 define("ember-resolver/utils/class-factory",["exports"],function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return{create:function(t){return"function"==typeof e.extend?e.extend(t):e}}}}),define("ember-resolver/utils/make-dictionary",["exports"],function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=Object.create(null)
