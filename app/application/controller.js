@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 
 export default Controller.extend({
   collapsed: true,
-  year: computed(function () {
+  year: computed(function() {
     return new Date().getFullYear();
   })
 });

@@ -15,7 +15,7 @@
   color: #f93e0b;
 }
 
-#huegasm-promo-images {
+.promo-images {
   text-align: center;
 
   img {
@@ -23,6 +23,18 @@
     min-width: 200px;
     margin-bottom: 10px;
   }
+}
+
+.play-store-icon img {
+  width: 150px;
+}
+
+.app-store-icon img {
+  width: 130px;
+}
+
+.chrome-store-icon img {
+  width: 170px;
 }
 
 @include media-breakpoint-down(xs) {
