@@ -13,7 +13,7 @@
     "build": "ember build --env=production",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "ember serve --port=4201",
-    "test": "ember test"
+    "deploy": "ember deploy production"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
@@ -24,6 +24,9 @@
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^3.0.0",
+    "ember-cli-deploy": "^1.0.0",
+    "ember-cli-deploy-build": "^1.0.0",
+    "ember-cli-deploy-git": "^1.1.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-htmlbars": "^3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
