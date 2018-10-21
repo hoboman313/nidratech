@@ -8,11 +8,19 @@
 }
 
 #huegasm-title a {
-  color: #910249;
+  color: #910249 !important;
+
+  &:hover {
+    color: darken(#910249, 5%) !important;
+  }
 }
 
 #tomati-title {
-  color: #f93e0b;
+  color: #f93e0b !important;
+
+  &:hover {
+    color: darken(#f93e0b, 5%) !important;
+  }
 }
 
 .promo-images {
