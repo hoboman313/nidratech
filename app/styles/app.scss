@@ -5,7 +5,7 @@
 @import 'clients';
 @import 'bootstrap-overrides';
 
-body > .ember-view {
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;

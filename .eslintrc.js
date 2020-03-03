@@ -1,8 +1,11 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module'
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   plugins: ['ember'],
   extends: ['eslint:recommended', 'plugin:ember/recommended'],
@@ -15,8 +18,7 @@ module.exports = {
     {
       files: ['testem.js', 'ember-cli-build.js', 'config/**/*.js', 'lib/*/index.js'],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,
